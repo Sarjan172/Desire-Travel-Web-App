@@ -1,0 +1,123 @@
+[
+  {
+    "id": "01",
+    "title": "Lumbini",
+    "city": "Rupandehi",
+    "distance": 300,
+    "address": "F79G+V83, तौलिहवा रोड, Lumbini Sanskritik 32900",
+    "price": 199,
+    "maxGroupSize": 15,
+    "desc": "This package includes 4days and 3nights in a standard hotel which includes breakfast, lunch, dinner, transportation, exploring most of the temples there including personal expenses such as drinks, laundry and phone calls.",
+    "reviews": [
+      {
+        "name": "Jhon Doe",
+        "rating": 4.6
+      },
+      {
+        "name": "Jhon Doe",
+        "rating": 5
+      }
+    ],
+    "avgRating": 4.5,
+    "photo": "tourImg01",
+    "featured": true
+  },
+  {
+    "id": "02",
+    "title": "Buddha Stupa",
+    "city": "Kathmandu",
+    "distance": 400,
+    "address": "Buddha Stupa, Boudha Sadak, Kathmandu 44600",
+    "price": 89,
+    "maxGroupSize": 4,
+    "desc": "this is the description",
+    "reviews": [],
+    "avgRating": 4.5,
+    "photo": "tourImg02",
+    "featured": false
+  },
+  {
+    "id": "03",
+    "title": "Chitwan National Park",
+    "city": "Chitwan",
+    "distance": 500,
+    "address": "Ratnanagar Municipality",
+    "price": 219,
+    "maxGroupSize": 12,
+    "desc": "this is the description",
+    "reviews": [],
+    "avgRating": 4.5,
+    "photo": "tourImg03",
+    "featured": false
+  },
+  {
+    "id": "04",
+    "title": "Kanyam",
+    "city": "Ilam",
+    "distance": 500,
+    "address": "uryodaya Municipality",
+    "price": 249,
+    "maxGroupSize": 5,
+    "desc": "this is the description",
+    "reviews": [],
+    "avgRating": 4.5,
+    "photo": "tourImg04",
+    "featured": true
+  },
+  {
+    "id": "05",
+    "title": "Bandipur",
+    "city": "Tanahun",
+    "distance": 500,
+    "address": "Tanahun District",
+    "price": 139,
+    "maxGroupSize": 5,
+    "desc": "this is the description",
+    "reviews": [],
+    "avgRating": 4.5,
+    "photo": "tourImg05",
+    "featured": false
+  },
+  {
+    "id": "06",
+    "title": "Ghale Gaun",
+    "city": "Lamjung",
+    "distance": 500,
+    "address": "Lamjung District",
+    "price": 175,
+    "maxGroupSize": 6,
+    "desc": "this is the description",
+    "reviews": [],
+    "avgRating": 4.5,
+    "photo": "tourImg06",
+    "featured": false
+  },
+  {
+    "id": "07",
+    "title": "Muktinath",
+    "city": "Mustang",
+    "distance": 500,
+    "address": "Mustang District",
+    "price": 350,
+    "maxGroupSize": 8,
+    "desc": "this is the description",
+    "reviews": [],
+    "avgRating": 4.5,
+    "photo": "tourImg07",
+    "featured": true
+  },
+  {
+    "id": "08",
+    "title": "Tilicho Lake",
+    "city": "Manang",
+    "distance": 500,
+    "address": "Manang District",
+    "price": 310,
+    "maxGroupSize": 12,
+    "desc": "this is the description",
+    "reviews": [],
+    "avgRating": 4.5,
+    "photo": "tourImg08",
+    "featured": true
+  }
+]
