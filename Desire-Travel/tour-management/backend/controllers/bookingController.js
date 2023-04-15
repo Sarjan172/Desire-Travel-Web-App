@@ -42,7 +42,7 @@ export const getBooking = async (req, res) => {
 //get all booking
 export const getAllBooking = async (req, res) => {
     try {
-        const books = await Booking.findById(id)
+        const books = await Booking.find({})
 
         res.status(200).json({
             sucess: true, message: "Sucessfull",
@@ -53,4 +53,26 @@ export const getAllBooking = async (req, res) => {
             sucess: true, message: "Internal server error",
         })
     };
+};
+
+export const deleteBooking = async (req, res) => {
+    const id = req.params.id
+
+    try {
+        await Booking.findByIdAndDelete(id)
+        res
+            .status(200)
+            .json({
+                success: true,
+                message: 'Sucessfully deleted',
+            });
+    } catch (err) {
+        res
+            .status(500)
+            .json({
+                success: false,
+                message: 'failed to delete',
+            });
+
+    }
 };

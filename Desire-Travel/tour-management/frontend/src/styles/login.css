@@ -61,7 +61,7 @@
   background: var(--heading-color) !important;
   width: 200%;
   color: #fff !important;
-  margin-right:  200px;
+  margin-right: 200px;
 }
 
 .login__form p {
@@ -78,4 +78,30 @@
   text-decoration: none;
   margin-left: 5px;
   font-weight: 500;
+}
+
+@media only screen and (max-width: 768px) {
+  .login__img {
+    display: none;
+  }
+
+  .login__form {
+    width: 70%;
+    margin: auto;
+  }
+
+  .login__container {
+    padding-bottom: 3rem;
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .login__form {
+    width: 100%;
+  }
+
+  .login__container {
+    padding-bottom: 1rem;
+  }
 }

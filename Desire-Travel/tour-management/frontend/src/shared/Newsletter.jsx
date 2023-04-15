@@ -25,7 +25,7 @@ const Newsletter = () => {
                 <input
                   type="email"
                   placeholder="  Enter your email"
-                  style={{ border: "none" }}
+                  style={{ border: "none", width: 1000 }}
                 ></input>
                 <button className="btn newsletter__btn">Subscribe</button>
               </div>

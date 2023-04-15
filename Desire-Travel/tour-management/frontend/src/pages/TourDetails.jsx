@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import "../styles/tour-details.css";
 import { Container, Row, Col, Form, ListGroup } from "reactstrap";
 import { useLoaderData, useParams } from "react-router-dom";
@@ -8,11 +8,13 @@ import Booking from "../components/Booking/Booking";
 import Newsletter from "../shared/Newsletter";
 import useFetch from "../hooks/useFetch";
 import { BASE_URL } from "../utils/config";
+import { AuthContext } from "../context/AuthContext";
 
 const TourDetails = () => {
   const { id } = useParams();
   const reviewMsgRef = useRef("");
   const [tourRating, setTourRating] = useState(null);
+  const { user } = useContext(AuthContext);
 
   //fetch data from database
   const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`);
@@ -36,9 +38,38 @@ const TourDetails = () => {
   const options = { day: "numeric", month: "long", year: "numeric" };
 
   //submit request to the server
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const reviewText = reviewMsgRef.current.value;
+
+    try {
+      if (!user || user === undefined || user === null) {
+        alert("Please sign in");
+      }
+
+      const reviewObj = {
+        username: user.username,
+        reviewText,
+        rating: tourRating,
+      };
+
+      const res = await fetch(`${BASE_URL}/review/${id}`, {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(reviewObj),
+      });
+      const result = await res.json();
+      if (!res.ok) {
+        return alert(result.message);
+      }
+
+      alert(result.message);
+    } catch (err) {
+      alert(err.message);
+    }
   };
 
   useEffect(() => {
@@ -62,7 +93,7 @@ const TourDetails = () => {
                     <h2>{title}</h2>
 
                     <div className=" gap-2">
-                      <span className="tour__rating d-flex align-items-center gap-1">
+                      <span className="tour__rating  align-items-center gap-1">
                         <i
                           class="ri-star-fill"
                           style={{ color: "var(--secondary-color)" }}
@@ -80,7 +111,7 @@ const TourDetails = () => {
                       </span>
                     </div>
 
-                    <div className="tour__extra-details">
+                    <div className="tour__extra-details d-flex align-items-center">
                       <span>
                         <i class="ri-map-pin-2-line"></i>
                         {city}
@@ -101,12 +132,10 @@ const TourDetails = () => {
                         <h5>Description</h5>
                         <p>{desc}</p>
                       </div>
+                    </div>
 
-                      {/* -------------tour reviews section------------- */}
-                      <div className="tour__reviews mt-4">
-                        <h4>Reviews ({reviews?.length} )</h4>
-                      </div>
-
+                    {/* -------------tour reviews section------------- */}
+                    <div className="tour__reviews d-flex align-items-center gap-1 mb-1 rating__group">
                       <Form onSubmit={submitHandler}>
                         <div className="d-flex align-items-center gap-1 mb-1 rating__group">
                           <span onClick={() => setTourRating(1)}>
@@ -128,7 +157,7 @@ const TourDetails = () => {
 
                         <div className="review__input">
                           <input
-                            type=" text"
+                            type="text"
                             ref={reviewMsgRef}
                             placeholder="share your thoughts"
                             required
@@ -141,33 +170,33 @@ const TourDetails = () => {
                           </button>
                         </div>
                       </Form>
-                      <div className="user__reviews">
-                        {reviews?.map((reviews) => (
-                          <div className="review__item">
-                            <img src={avatar} alt="" />
-
-                            <div className="w-100">
-                              <div className="d-flex align-items-center justify-content-between">
-                                <div>
-                                  <h5>Sarjan</h5>
-                                  <p>
-                                    {new Date("01-25-2023").toLocaleDateString(
-                                      "en-US",
-                                      options
-                                    )}
-                                  </p>
-                                </div>
-                                <span className="d-flex align-items-center">
-                                  5 <i class="ri-star-s-fill"></i>
-                                </span>
-                              </div>
-
-                              <h6>Amazing tour</h6>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
                     </div>
+                    <div className="user__reviews">
+                      {reviews?.map((review) => (
+                        <div className="review__item">
+                          <img src={avatar} alt="" />
+
+                          <div className="w-100">
+                            <div className="d-flex align-items-center justify-content-between">
+                              <div>
+                                <h5>{review.username}</h5>
+                                <p>
+                                  {new Date(
+                                    review.createdAt
+                                  ).toLocaleDateString("en-US", options)}
+                                </p>
+                              </div>
+                              <span className="d-flex align-items-center">
+                                {review.rating} <i class="ri-star-s-fill"></i>
+                              </span>
+                            </div>
+
+                            <h6>{review.reviewText}</h6>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
                     {/* -------------tour reviews section------------- */}
                   </div>
                 </div>

@@ -12,7 +12,11 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import TourCard from "./shared/TourCard";
 import SearchResultList from "./pages/SearchResultList";
-
+import CreateTour from "./components/Admin/CreateTour";
+import AllTours from "./components/Admin/AllTour";
+import EditTour from "./components/Admin/EditTour";
+import BookingTable from "./components/Admin/BookingTable";
+import ForgotPassword from "./pages/Forgot";
 function App() {
   return (
     <BrowserRouter>
@@ -25,8 +29,14 @@ function App() {
         <Route path='/thank-you' element={<ThankYou />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/createtour' element={<CreateTour />} />
+        <Route path='/alltour' element={<AllTours />} />
+        <Route path='/edittours/:id' element={<EditTour />} />
+        <Route path='/allbooking' element={<BookingTable />} />
         <Route path='/card' element={<TourCard />} />
         <Route path='/tours/search' element={<SearchResultList />} />
+        <Route path='/forgot' element={<ForgotPassword />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
