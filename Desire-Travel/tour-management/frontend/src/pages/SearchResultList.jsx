@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import CommonSection from "../shared/CommonSection";
-
 import { useLocation } from "react-router-dom";
 import TourCard from "./../shared/TourCard";
 import Newsletter from "../shared/Newsletter";
@@ -11,7 +10,6 @@ const SearchResultList = () => {
   const [data] = useState(location.state);
 
   console.log(data);
-
   return (
     <>
       <CommonSection title={"Tour Search Result"} />
@@ -36,3 +34,5 @@ const SearchResultList = () => {
 };
 
 export default SearchResultList;
+
+

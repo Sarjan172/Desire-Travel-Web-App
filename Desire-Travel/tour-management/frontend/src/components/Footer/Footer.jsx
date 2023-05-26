@@ -36,7 +36,6 @@ const quick__links2 = [
 ];
 
 const Footer = () => {
-
   return (
     <footer className="footer">
       <Container>
@@ -126,7 +125,7 @@ const Footer = () => {
           <Col lg="12" className="text-center pt-5">
             <p className="copyright">
               <span className="highlight1">Copyright© 2023 </span>
-               DESIRE, All rights reserved.
+              DESIRE, All rights reserved.
             </p>
           </Col>
         </Row>

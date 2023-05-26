@@ -128,35 +128,39 @@ const TourDetails = () => {
                         <i class="ri-group-line"></i>
                         {maxGroupSize} people
                       </span>
-                      <div>
-                        <h5>Description</h5>
-                        <p>{desc}</p>
-                      </div>
+                    </div>
+                    <div>
+                      <h5>Description</h5>
+                      <p>{desc}</p>
                     </div>
 
                     {/* -------------tour reviews section------------- */}
                     <div className="tour__reviews d-flex align-items-center gap-1 mb-1 rating__group">
-                      <Form onSubmit={submitHandler}>
+                      <Form
+                        onSubmit={submitHandler}
+                        style={{ transform: "translateX(-100px)" }}
+                      >
                         <div className="d-flex align-items-center gap-1 mb-1 rating__group">
                           <span onClick={() => setTourRating(1)}>
-                            1 <i class="ri-star-s-fill"></i>
+                            1 <i class="ri-star-s-fill me-3"></i>
                           </span>
                           <span onClick={() => setTourRating(2)}>
-                            2 <i class="ri-star-s-fill"></i>
+                            2 <i class="ri-star-s-fill me-3"></i>
                           </span>
                           <span onClick={() => setTourRating(3)}>
-                            3 <i class="ri-star-s-fill"></i>
+                            3 <i class="ri-star-s-fill me-3"></i>
                           </span>
                           <span onClick={() => setTourRating(4)}>
-                            4 <i class="ri-star-s-fill"></i>
+                            4 <i class="ri-star-s-fill me-3"></i>
                           </span>
                           <span onClick={() => setTourRating(5)}>
-                            5 <i class="ri-star-s-fill"></i>
+                            5 <i class="ri-star-s-fill me-3"></i>
                           </span>
                         </div>
 
                         <div className="review__input">
                           <input
+                            style={{ width: "400px" }}
                             type="text"
                             ref={reviewMsgRef}
                             placeholder="share your thoughts"

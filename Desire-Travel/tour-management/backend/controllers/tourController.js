@@ -45,7 +45,6 @@ export const updateTour = async (req, res) => {
                 success: false,
                 message: 'failed to update',
             });
-
     }
 };
 
@@ -68,7 +67,6 @@ export const deleteTour = async (req, res) => {
                 success: false,
                 message: 'failed to delete',
             });
-
     }
 };
 

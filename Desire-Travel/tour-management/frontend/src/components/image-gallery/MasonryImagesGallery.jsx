@@ -5,10 +5,10 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 const MasonryImagesGallery = () => {
   return (
     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 768: 3, 699: 4 }}>
-      <Masonry gutter="1rem">
+      <Masonry gutter="1rem" className="mt-5">
         {galleryImages.map((item, index) => (
           <img
-          className="masonry__img"
+            className="masonry__img"
             src={item}
             key={index}
             alt=""

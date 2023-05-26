@@ -7,7 +7,19 @@ import { AuthContext } from "../../context/AuthContext";
 import { BASE_URL } from "../../utils/config";
 
 const Booking = ({ tour, avgRating }) => {
-  const { price, reviews, title } = tour;
+  const {
+    price,
+    reviews,
+    title,
+    hotel1title,
+    hotel2title,
+    hotel1photo,
+    hotel2photo,
+    hotel1price,
+    hotel2price,
+    hotel1loc,
+    hotel2loc,
+  } = tour;
   const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
@@ -20,6 +32,8 @@ const Booking = ({ tour, avgRating }) => {
     phone: "",
     guestSize: 1,
     bookAt: "",
+    hotel1title: "",
+    hotel2title: "",
   });
 
   const handleChange = (e) => {
@@ -79,7 +93,11 @@ const Booking = ({ tour, avgRating }) => {
       {/*------------------booking form----------------*/}
       <div className="booking__form">
         <h5>Information</h5>
-        <Form className="bookng__info-form" onSubmit={handleClick}>
+        <Form
+          style={{ transform: "translateX(-100px)" }}
+          className="bookng__info-form"
+          onSubmit={handleClick}
+        >
           <FormGroup>
             <input
               type="text"
@@ -116,6 +134,15 @@ const Booking = ({ tour, avgRating }) => {
               onChange={handleChange}
             />
           </FormGroup>
+          <FormGroup>
+            <input
+              type="text"
+              placeholder="Hotel"
+              id="hotel1title"
+              required
+              onChange={handleChange}
+            />
+          </FormGroup>
         </Form>
       </div>
       {/*------------------booking end----------------*/}
@@ -138,7 +165,72 @@ const Booking = ({ tour, avgRating }) => {
             <span>${totalAmount}</span>
           </ListGroupItem>
         </ListGroup>
-
+        <div className="row">
+          <div className="col-12">
+            <div class="card mb-3" style={{ maxWidth: "540px" }}>
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    src={hotel1photo}
+                    class="img-fluid rounded-start"
+                    alt=""
+                    style={{ height: "200px" }}
+                  />
+                  <input
+                    class="form-check-input ms-3 my-1"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckChecked"
+                  ></input>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{hotel1title}</h5>
+                    <p class="card-text">{hotel1loc}</p>
+                    <p class="card-text"> ${hotel1price}</p>
+                    <p class="card-text">
+                      <small class="text-body-secondary">
+                        Last updated 3 mins ago
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-12">
+            <div class="card mb-3" style={{ maxWidth: "540px" }}>
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    src={hotel2photo}
+                    class="img-fluid rounded-start"
+                    alt="..."
+                    style={{ height: "200px" }}
+                  />
+                  <input
+                    class="form-check-input ms-3 my-1"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckChecked"
+                  ></input>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{hotel2title}</h5>
+                    <p class="card-text">{hotel2loc}</p>
+                    <p class="card-text"> ${hotel2price}</p>
+                    <p class="card-text">
+                      <small class="text-body-secondary">
+                        Last updated 3 mins ago
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <Button className="btn-primary__btn w-100 mt-4" onClick={handleClick}>
           Book Now
         </Button>

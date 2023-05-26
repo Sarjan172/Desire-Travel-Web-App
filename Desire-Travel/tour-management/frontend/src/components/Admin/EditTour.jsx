@@ -69,7 +69,7 @@ const EditTour = () => {
 
   return (
     <div>
-      <h1>Edit Tour</h1>
+      <h1 className="text-center">Edit Tour</h1>
       {loading ? (
         <p>Loading...</p>
       ) : error ? (
@@ -153,7 +153,20 @@ const EditTour = () => {
             />
           </label>
           <br />
-          <button type="submit">Save</button>
+          <div className="d-flex justify-content-center">
+            <button
+              type="submit"
+              style={{
+                border: "none",
+                width: "100px",
+                backgroundColor: "orange",
+                height: "30px",
+                borderRadius: "10px",
+              }}
+            >
+              Save
+            </button>
+          </div>
         </form>
       )}
     </div>

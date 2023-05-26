@@ -45,7 +45,6 @@ export const updateUser = async (req, res) => {
                 success: false,
                 message: 'failed to update',
             });
-
     }
 };
 
@@ -68,7 +67,6 @@ export const deleteUser = async (req, res) => {
                 success: false,
                 message: 'failed to delete',
             });
-
     }
 };
 
@@ -135,7 +133,9 @@ export const forgotPassword = async (req, res, next) => {
 
         const resetUrl = `http://${req.headers.host}/reset-password`;
 
-        const message = `You are receiving this email because you (or someone else) has requested the reset of your password. Please click on the following link to complete the process:\n\n${resetUrl}\n\nIf you did not request this, please ignore this email and your password will remain unchanged.`;
+        const message = `You are receiving this email because you (or someone else) has requested the reset of your password. 
+        Please click on the following link to complete the process:\n\n${resetUrl}\n\nIf you did not request this, 
+        please ignore this email and your password will remain unchanged.`;
 
         await sendMail({
             email: user.email,

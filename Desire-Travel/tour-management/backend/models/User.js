@@ -34,24 +34,24 @@ const userSchema = new mongoose.Schema(
 
   { timestamps: true },
 
-
 );
 
-// Forgot password
+// Forgot password method for user schema.
 userSchema.methods.getResetToken = function () {
-  // Generating token
+  // Generating a random token.
   const resetToken = crypto.randomBytes(20).toString("hex");
 
-  //    hashing and adding resetPasswordToken to userSchema
+  // Hashing and setting the reset password token on the user schema.
   this.resetPasswordToken = crypto
     .createHash("sha256")
     .update(resetToken)
     .digest("hex");
 
+  // Setting a time limit for the token to be valid.
   this.resetPasswordTime = Date.now() + 15 * 60 * 1000;
 
+  // Returning the reset token to be used in the password reset process.
   return resetToken;
 };
-
 
 export default mongoose.model("User", userSchema);

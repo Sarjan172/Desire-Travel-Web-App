@@ -16,11 +16,29 @@ const tourSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    hotel1title: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    hotel2title: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     distance: {
       type: Number,
       required: true,
     },
     photo: {
+      type: String,
+      required: true,
+    },
+    hotel1photo: {
+      type: String,
+      required: true,
+    },
+    hotel2photo: {
       type: String,
       required: true,
     },
@@ -30,6 +48,22 @@ const tourSchema = new mongoose.Schema(
     },
     price: {
       type: Number,
+      required: true,
+    },
+    hotel1price: {
+      type: Number,
+      required: true,
+    },
+    hotel2price: {
+      type: Number,
+      required: true,
+    },
+    hotel1loc: {
+      type: String,
+      required: true,
+    },
+    hotel2loc: {
+      type: String,
       required: true,
     },
     maxGroupSize: {
@@ -53,3 +87,12 @@ const tourSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("Tour", tourSchema);
+
+
+
+
+
+
+
+
+

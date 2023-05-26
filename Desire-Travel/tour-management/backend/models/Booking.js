@@ -27,9 +27,22 @@ const bookingSchema = new mongoose.Schema(
         bookAt: {
             type: Date,
             required: true,
-        }
+        },
+        hotel1title:{
+            type: String,
+            required: false,
+        },
+        hotel1title:{
+            type: String,
+            required: false,
+        },
+
     },
     { timestamps: true }
 );
 
 export default mongoose.model("Booking", bookingSchema);
+
+
+
+

@@ -1,6 +1,4 @@
-
 import Booking from "../models/Booking.js"
-
 
 //create new booking
 export const createBooking = async (req, res) => {
@@ -19,7 +17,6 @@ export const createBooking = async (req, res) => {
         })
     };
 };
-
 
 //get single booking
 export const getBooking = async (req, res) => {
@@ -73,6 +70,8 @@ export const deleteBooking = async (req, res) => {
                 success: false,
                 message: 'failed to delete',
             });
-
     }
 };
+
+
+

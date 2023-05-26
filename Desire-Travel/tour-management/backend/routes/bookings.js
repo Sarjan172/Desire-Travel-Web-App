@@ -4,12 +4,16 @@ import { createBooking, deleteBooking, getAllBooking, getBooking } from "../cont
 
 const router = express.Router()
 
-router.post('/', verifyUser, createBooking)
+router.post('/', verifyUser, verifyAdmin, createBooking)
 router.get('/:id',  getBooking)
 router.get('/',  getAllBooking)
 router.delete('/:id', deleteBooking);
 
 
 export default router
+
+
+
+
 
 

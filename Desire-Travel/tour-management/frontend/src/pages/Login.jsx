@@ -74,6 +74,10 @@ const Login = () => {
                           placeholder="Email"
                           required
                           id="email"
+                          style={{
+                            width: "300px",
+                            transform: "translateX(-100px)",
+                          }}
                           onChange={handleChange}
                         />
                       </FormGroup>
@@ -83,12 +87,20 @@ const Login = () => {
                           placeholder="Password"
                           required
                           id="password"
+                          style={{
+                            width: "300px",
+                            transform: "translateX(-100px)",
+                          }}
                           onChange={handleChange}
                         />
                       </FormGroup>
                       <Button
                         className="btn secondary__btn auth__btn"
                         type="submit"
+                        style={{
+                          width: "100px",
+                          transform: "translateX(-100px)",
+                        }}
                       >
                         Login
                       </Button>

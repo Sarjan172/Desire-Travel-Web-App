@@ -135,7 +135,7 @@ const Home = () => {
       {/*-------------experience section start-------------*/}
 
       {/*-------------gallery section start-------------*/}
-      <section>
+      <section id="section1">
         <Container>
           <Row>
             <Col lg='12'>

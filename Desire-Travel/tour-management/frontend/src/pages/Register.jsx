@@ -59,12 +59,15 @@ const Register = () => {
               </div>
               <div className="register__form d-flex justify-content-center">
                 <div className="user text-center">
-                  <img src={userIcon} alt="" />
+                  <img src={userIcon} alt=""/>
                   <h2>Register</h2>
 
                   <Form onSubmit={handleClick}>
                     <FormGroup>
                       <input
+                        style={{
+                          transform: "translateX(-40px)",
+                        }}
                         type="tx"
                         placeholder="Username"
                         required
@@ -74,6 +77,9 @@ const Register = () => {
                     </FormGroup>
                     <FormGroup>
                       <input
+                        style={{
+                          transform: "translateX(-40px)",
+                        }}
                         type="email"
                         placeholder="Email"
                         required
@@ -83,6 +89,9 @@ const Register = () => {
                     </FormGroup>
                     <FormGroup>
                       <input
+                        style={{
+                          transform: "translateX(-40px)",
+                        }}
                         type="password"
                         placeholder="Password"
                         required
@@ -91,6 +100,10 @@ const Register = () => {
                       />
                     </FormGroup>
                     <Button
+                      style={{
+                        transform: "translateX(60px)",
+                        width: "100px",
+                      }}
                       className="btn secondary__btn auth__btn"
                       type="submit"
                     >
